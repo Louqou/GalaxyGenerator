@@ -10,4 +10,4 @@ Concentric ellipses are rotated in relation to each other to create areas of hig
  
 ![Alt Text](https://thumbs.gfycat.com/WaryIllegalGosling-size_restricted.gif)
 
-![Alt Text](https://imgur.com/a/b5Ck0UN)
+![Alt Text](https://i.imgur.com/2pZmpFv.gif)
