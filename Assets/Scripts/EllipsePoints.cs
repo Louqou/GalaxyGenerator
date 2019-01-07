@@ -10,19 +10,23 @@ public class EllipsePoints : MonoBehaviour
     public int pointsPerEllipseStart = 3;
     public int pointPerEllipseGrowRate = 11;
     public int numberOfParticles = 1000;
+    public float rotationSpeed = 1f;
 
     private new ParticleSystem particleSystem;
     private ParticleSystem.Particle[] particles;
+    private float currentRotation;
 
     private void Start()
     {
         particleSystem = GetComponent<ParticleSystem>();
 
-        if (numberOfParticles <= particleSystem.main.maxParticles) {
+        if (numberOfParticles <= particleSystem.main.maxParticles)
+        {
             particles = new ParticleSystem.Particle[numberOfParticles];
             particleSystem.Emit(numberOfParticles);
         }
-        else {
+        else
+        {
             throw new System.Exception(
                 "The number of particles supplied exceeds the maximum number of particles on the particle system's main module"
                 );
@@ -31,6 +35,7 @@ public class EllipsePoints : MonoBehaviour
 
     private void Update()
     {
+        currentRotation = (currentRotation + (rotationSpeed * Time.deltaTime)) % 360;
         GenerateGalaxy();
     }
 
@@ -41,16 +46,19 @@ public class EllipsePoints : MonoBehaviour
         float startX = ellipseStartXLength;
         float startY = ellipseStartYLength;
         int pointsPerEllipse = pointsPerEllipseStart;
-   
+
         float angleOffSet = 0;
         int particlesGenerated = 0;
 
-        while (particlesGenerated < numberOfParticles) {
+        while (particlesGenerated < numberOfParticles)
+        {
             Vector2[] positions = GenerateElipsePoints(pointsPerEllipse, startX, startY, angleOffSet);
 
-            for (int p = 0; p < pointsPerEllipse; p++) {
+            for (int p = 0; p < pointsPerEllipse; p++)
+            {
                 particles[particlesGenerated].position = new Vector3(positions[p].x, positions[p].y, 0);
-                if (++particlesGenerated == numberOfParticles) {
+                if (++particlesGenerated == numberOfParticles)
+                {
                     break;
                 }
             }
@@ -67,8 +75,9 @@ public class EllipsePoints : MonoBehaviour
     {
         Vector2[] points = new Vector2[numPoints];
 
-        for (int i = 0; i < numPoints; i++) {
-            float angle = i / (float)numPoints * 360 * Mathf.Deg2Rad;
+        for (int i = 0; i < numPoints; i++)
+        {
+            float angle = i / (float)numPoints * 360 * Mathf.Deg2Rad + currentRotation;
             float x = Mathf.Sin(angle) * xLen;
             float y = Mathf.Cos(angle) * yLen;
 
