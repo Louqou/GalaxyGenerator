@@ -1,7 +1,5 @@
 # GalaxyGenerator
-<p align="center">
-  ![Alt Text](https://thumbs.gfycat.com/RingedMistyCottonmouth-size_restricted.gif)
-</p>
+![Alt Text](https://thumbs.gfycat.com/RingedMistyCottonmouth-size_restricted.gif)
 Galaxy particle system! 🌌
 
 Creating a galaxy structure using density wave theory. 
