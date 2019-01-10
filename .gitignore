@@ -2,7 +2,9 @@
 # Mine
 ###
 [Vv]ideos
-Assets/Materials/Textures*
+Assets/PostProcessing
+Builds
+Pictures
 ###
 # Unity folders and files
 ###
